@@ -1,7 +1,7 @@
 /* === VARIABLES === */
 :root {
-  --red: #CC271D;
-  --red-dark: #A81F17;
+  --orange: #D4720A;
+  --orange-dark: #B05C08;
   --dark: #1a1a1a;
   --dark-2: #2d2d2d;
   --white: #ffffff;
@@ -42,21 +42,21 @@ ul { list-style: none; }
   border: 2px solid transparent;
 }
 .btn:hover { transform: translateY(-2px); }
-.btn-primary { background: var(--red); color: var(--white); }
-.btn-primary:hover { background: var(--red-dark); }
+.btn-primary { background: var(--orange); color: var(--white); }
+.btn-primary:hover { background: var(--orange-dark); }
 .btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.6); }
 .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
-.btn-white { background: var(--white); color: var(--red); }
+.btn-white { background: var(--white); color: var(--orange); }
 .btn-white:hover { background: var(--light); }
 .btn-nav {
-  background: var(--red);
+  background: var(--orange);
   color: var(--white);
   padding: 0.5rem 1.2rem;
   font-size: 0.9rem;
   border-radius: 4px;
   white-space: nowrap;
 }
-.btn-nav:hover { background: var(--red-dark); transform: none; }
+.btn-nav:hover { background: var(--orange-dark); transform: none; }
 
 /* === NAVBAR === */
 .navbar {
@@ -130,7 +130,7 @@ ul { list-style: none; }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a0a08 50%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a1500 50%, #1a1a1a 100%);
   opacity: 0.9;
 }
 .hero-inner {
@@ -177,13 +177,11 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  padding: 2rem 2rem;
+  padding: 2rem;
   border-right: 1px solid rgba(255,255,255,0.07);
 }
 .feature-item:last-child { border-right: none; }
-.feature-icon {
-  flex-shrink: 0;
-}
+.feature-icon { flex-shrink: 0; }
 .feature-item p {
   font-size: 0.95rem;
   color: rgba(255,255,255,0.75);
@@ -234,8 +232,55 @@ ul { list-style: none; }
 }
 .about-content .btn { margin-top: 0.75rem; }
 
+/* === REPAIRS === */
+.repairs { background: var(--light); }
+.repairs h2 { text-align: center; }
+.repairs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.repair-card {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 2.25rem 2rem;
+  text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.repair-card:hover {
+  border-color: var(--orange);
+  box-shadow: 0 6px 20px rgba(212,114,10,0.12);
+  transform: translateY(-3px);
+}
+.repair-card-icon {
+  margin-bottom: 1.25rem;
+}
+.repair-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+.repair-card p {
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.repairs-cta {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+.repairs-cta p {
+  color: var(--gray);
+  margin-bottom: 1rem;
+}
+
 /* === PRODUCTS / TABS === */
-.products { background: var(--light); }
+.products { background: var(--white); }
 .products h2 { text-align: center; }
 .tabs-wrapper {
   display: grid;
@@ -265,14 +310,14 @@ ul { list-style: none; }
   transition: border-color 0.2s, background 0.2s, color 0.2s;
   line-height: 1.3;
 }
-.tab-btn:hover { border-color: var(--red); color: var(--red); }
+.tab-btn:hover { border-color: var(--orange); color: var(--orange); }
 .tab-btn.active {
-  background: var(--red);
-  border-color: var(--red);
+  background: var(--orange);
+  border-color: var(--orange);
   color: var(--white);
 }
 .tabs-content {
-  background: var(--white);
+  background: var(--light);
   border: 2px solid var(--border);
   border-radius: 8px;
   padding: 2.5rem;
@@ -307,7 +352,7 @@ ul { list-style: none; }
   display: inline-block;
   width: 8px;
   height: 8px;
-  background: var(--red);
+  background: var(--orange);
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -358,22 +403,59 @@ ul { list-style: none; }
   gap: 1rem;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
-.contact-item:hover { border-color: var(--red); box-shadow: 0 4px 16px rgba(204,39,29,0.1); }
+.contact-item:hover { border-color: var(--orange); box-shadow: 0 4px 16px rgba(212,114,10,0.1); }
 .contact-icon { flex-shrink: 0; margin-top: 2px; }
 .contact-item h4 {
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--red);
+  color: var(--orange);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.4rem;
 }
 .contact-item p { font-size: 0.95rem; color: var(--gray); line-height: 1.5; }
-.contact-item a { color: var(--red); font-weight: 600; }
+.contact-item a { color: var(--orange); font-weight: 600; }
 .contact-item a:hover { text-decoration: underline; }
 
+/* === GALLERY === */
+.gallery { background: var(--light); }
+.gallery h2 { text-align: center; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.gallery-item {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 2.5rem;
+  color: var(--gray);
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.gallery-item:hover { border-color: var(--orange); transform: scale(1.02); }
+.gallery-item span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gray);
+  letter-spacing: 0.04em;
+}
+.gallery-note {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
 /* === FAQ === */
-.faq { background: var(--light); }
+.faq { background: var(--white); }
 .faq-inner {
   display: grid;
   grid-template-columns: 1fr 300px;
@@ -397,11 +479,11 @@ ul { list-style: none; }
   gap: 1rem;
   user-select: none;
 }
-.faq-question:hover { color: var(--red); }
+.faq-question:hover { color: var(--orange); }
 .faq-icon {
   font-size: 1.5rem;
   font-weight: 300;
-  color: var(--red);
+  color: var(--orange);
   flex-shrink: 0;
   transition: transform 0.3s;
   line-height: 1;
@@ -429,11 +511,11 @@ ul { list-style: none; }
 .faq-cta-icon { margin-bottom: 1.25rem; }
 .faq-cta p { font-size: 0.9rem; color: rgba(255,255,255,0.65); margin-bottom: 0.5rem; }
 .faq-cta h3 { font-size: 1.25rem; font-weight: 800; }
-.faq-cta h3 a { color: var(--red); }
+.faq-cta h3 a { color: var(--orange); }
 .faq-cta h3 a:hover { text-decoration: underline; }
 
 /* === CTA STRIP === */
-.cta-strip { background: var(--red); padding: 3rem 0; }
+.cta-strip { background: var(--orange); padding: 3rem 0; }
 .cta-strip-inner {
   display: flex;
   align-items: center;
@@ -511,10 +593,12 @@ ul { list-style: none; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .about-image { order: -1; }
   .about-image-placeholder { height: 220px; }
+  .repairs-grid { grid-template-columns: 1fr; max-width: 420px; }
   .tabs-wrapper { grid-template-columns: 1fr; }
   .tabs-nav { flex-direction: row; overflow-x: auto; gap: 0.5rem; }
   .tab-btn { min-width: 130px; }
   .contact-grid { grid-template-columns: 1fr; max-width: 480px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .faq-inner { grid-template-columns: 1fr; }
   .faq-cta { display: none; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -544,9 +628,10 @@ ul { list-style: none; }
   }
   .btn-nav { display: none; }
   .features-grid { grid-template-columns: 1fr; }
-  .feature-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 1.5rem 1.5rem; }
+  .feature-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 1.5rem; }
   .feature-item:last-child { border-bottom: none; }
   .hours-row { flex-direction: column; text-align: center; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
   .cta-strip-inner { flex-direction: column; text-align: center; }
   .footer-inner { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem 2rem; }
   .hero-content h1 { font-size: 1.9rem; }
