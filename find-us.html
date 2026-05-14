@@ -6,6 +6,7 @@
   <title>Where to Find Us — Hellophone Springvale</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* ── Page hero ── */
     .find-hero {
       background: var(--dark);
       padding: 4rem 0 3rem;
@@ -15,65 +16,123 @@
       font-size: clamp(1.8rem, 4vw, 2.6rem);
       font-weight: 800;
       color: var(--white);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
-    .find-hero p {
-      color: rgba(255,255,255,0.65);
-      font-size: 1rem;
+    .find-hero p { color: rgba(255,255,255,0.6); font-size: 1rem; }
+
+    /* ── Main body ── */
+    .find-body { padding: 4rem 0 5rem; background: var(--light); }
+
+    /* ── Shop block ── */
+    .shop-block {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 860px;
+      margin: 0 auto;
     }
-    .find-body {
-      padding: 4rem 0;
-      background: var(--light);
+    .shop-header {
+      background: var(--orange);
+      padding: 1.75rem 2rem;
+      text-align: center;
     }
-    .find-grid {
+    .shop-header h2 {
+      color: var(--white);
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+    .shop-header p { color: rgba(255,255,255,0.82); font-size: 0.95rem; }
+
+    .shop-body {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: start;
     }
-    .map-wrap {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 2px solid var(--border);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-    .map-wrap iframe {
-      display: block;
-      width: 100%;
-      height: 420px;
-      border: none;
-    }
-    .find-details {
+
+    /* ── Details panel ── */
+    .shop-details {
+      padding: 2rem;
+      border-right: 2px solid var(--border);
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
     }
-    .find-card {
-      background: var(--white);
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      transition: border-color 0.2s;
-    }
-    .find-card:hover { border-color: var(--orange); }
-    .find-card svg { flex-shrink: 0; margin-top: 2px; }
-    .find-card h4 {
-      font-size: 0.8rem;
+    .detail-row { display: flex; gap: 0.9rem; align-items: flex-start; }
+    .detail-row svg { flex-shrink: 0; margin-top: 3px; }
+    .detail-row h4 {
+      font-size: 0.75rem;
       font-weight: 700;
       color: var(--orange);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
-    .find-card p { font-size: 0.95rem; color: var(--gray); line-height: 1.6; }
-    .find-card a { color: var(--orange); font-weight: 600; }
-    .find-card a:hover { text-decoration: underline; }
-    @media (max-width: 700px) {
-      .find-grid { grid-template-columns: 1fr; }
-      .map-wrap iframe { height: 280px; }
+    .detail-row p { font-size: 0.95rem; color: var(--gray); line-height: 1.55; }
+    .detail-row a { color: var(--orange); font-weight: 600; }
+    .detail-row a:hover { text-decoration: underline; }
+
+    .hours-list { display: flex; flex-direction: column; gap: 0.2rem; }
+    .hours-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.92rem;
+      color: var(--gray);
+    }
+    .hours-line span:last-child { font-weight: 700; color: var(--text); }
+
+    .shop-directions {
+      background: var(--light);
+      border-top: 2px solid var(--border);
+      border-radius: 0;
+      padding: 1rem 2rem;
+      font-size: 0.88rem;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .shop-directions strong { color: var(--orange); }
+
+    /* ── Map panel ── */
+    .shop-map { display: flex; flex-direction: column; }
+    .shop-map iframe {
+      flex: 1;
+      width: 100%;
+      min-height: 320px;
+      border: none;
+      display: block;
+    }
+    .map-cta {
+      background: var(--dark);
+      padding: 1rem 1.5rem;
+      text-align: center;
+    }
+    .map-cta a {
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .map-cta a:hover { text-decoration: underline; }
+
+    /* ── CTA strip ── */
+    .find-cta {
+      max-width: 860px;
+      margin: 2rem auto 0;
+      background: var(--orange);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      color: var(--white);
+    }
+    .find-cta h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .find-cta p { font-size: 0.95rem; opacity: 0.85; margin-bottom: 1.25rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 680px) {
+      .shop-body { grid-template-columns: 1fr; }
+      .shop-details { border-right: none; border-bottom: 2px solid var(--border); }
+      .shop-map iframe { min-height: 260px; }
     }
   </style>
 </head>
@@ -101,69 +160,116 @@
   <div class="find-hero">
     <div class="container">
       <h1>Where to Find Us</h1>
-      <p>We're located inside Springvale Shopping Centre — come visit us today.</p>
+      <p>Come visit us at Springvale Shopping Centre — open 7 days a week.</p>
     </div>
   </div>
 
   <!-- BODY -->
   <section class="find-body">
     <div class="container">
-      <div class="find-grid">
 
-        <!-- MAP -->
-        <div class="map-wrap">
-          <iframe
-            src="https://maps.google.com/maps?q=268+Springvale+Road+Springvale+VIC+3171+Australia&output=embed"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+      <!-- SHOP BLOCK -->
+      <div class="shop-block">
+
+        <!-- Header -->
+        <div class="shop-header">
+          <h2>Hellophone — Springvale</h2>
+          <p>Kiosk E, Inside Springvale Shopping Centre</p>
         </div>
 
-        <!-- DETAILS -->
-        <div class="find-details">
-          <div class="find-card">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" fill="#D4720A"/>
-            </svg>
-            <div>
-              <h4>Address</h4>
-              <p>Kiosk E, 268–274 Springvale Road<br>Springvale VIC 3171</p>
+        <!-- Two-column: details + map -->
+        <div class="shop-body">
+
+          <!-- Details -->
+          <div class="shop-details">
+
+            <div class="detail-row">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" fill="#D4720A"/>
+              </svg>
+              <div>
+                <h4>Address</h4>
+                <p>
+                  Kiosk E, 268–274 Springvale Road<br>
+                  Springvale VIC 3171<br>
+                  <a href="https://www.google.com/maps/search/268+Springvale+Road+Springvale+VIC+3171" target="_blank" rel="noopener">Open in Google Maps →</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="detail-row">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="#D4720A"/>
+              </svg>
+              <div>
+                <h4>Phone</h4>
+                <p><a href="tel:0406999818">0406 999 818</a></p>
+              </div>
+            </div>
+
+            <div class="detail-row">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#D4720A"/>
+              </svg>
+              <div>
+                <h4>Email</h4>
+                <p><a href="mailto:hellophone.sp@gmail.com">hellophone.sp@gmail.com</a></p>
+              </div>
+            </div>
+
+            <div class="detail-row">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="#D4720A" stroke-width="1.8" fill="none"/>
+                <polyline points="12,6 12,12 16,14" stroke="#D4720A" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+              </svg>
+              <div>
+                <h4>Opening Hours</h4>
+                <div class="hours-list">
+                  <div class="hours-line">
+                    <span>Monday – Sunday</span>
+                    <span>9:30 AM – 5:30 PM</span>
+                  </div>
+                </div>
+                <p style="margin-top:0.5rem; font-size:0.85rem;">Open every day including public holidays</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Map -->
+          <div class="shop-map">
+            <iframe
+              src="https://maps.google.com/maps?q=268+Springvale+Road+Springvale+VIC+3171+Australia&output=embed"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="map-cta">
+              <a href="https://www.google.com/maps/search/268+Springvale+Road+Springvale+VIC+3171" target="_blank" rel="noopener">
+                Click to open in Google Maps and get directions →
+              </a>
             </div>
           </div>
-          <div class="find-card">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path d="M30 6C16.745 6 6 16.745 6 30C6 43.255 16.745 54 30 54C43.255 54 54 43.255 54 30C54 16.745 43.255 6 30 6ZM31.5 31.5H18V28.5H28.5V13.5H31.5V31.5Z" fill="#D4720A"/>
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" fill="none"/>
-              <circle cx="12" cy="12" r="10" stroke="#D4720A" stroke-width="1.8" fill="none"/>
-              <polyline points="12,6 12,12 16,14" stroke="#D4720A" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-            </svg>
-            <div>
-              <h4>Opening Hours</h4>
-              <p>Monday – Sunday<br>9:30 AM – 5:30 PM<br>Open every day including public holidays</p>
-            </div>
-          </div>
-          <div class="find-card">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="#D4720A"/>
-            </svg>
-            <div>
-              <h4>Phone</h4>
-              <p><a href="tel:0406999818">0406 999 818</a></p>
-            </div>
-          </div>
-          <div class="find-card">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#D4720A"/>
-            </svg>
-            <div>
-              <h4>Email</h4>
-              <p><a href="mailto:hellophone.sp@gmail.com">hellophone.sp@gmail.com</a></p>
-            </div>
-          </div>
+
+        </div>
+
+        <!-- Directions hint -->
+        <div class="shop-directions">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#D4720A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span><strong>How to find us:</strong> We are inside Springvale Shopping Centre at Kiosk E — look for us near the main entrance on Springvale Road.</span>
         </div>
 
       </div>
+
+      <!-- CTA -->
+      <div class="find-cta">
+        <h3>Can't find us? Give us a call!</h3>
+        <p>Our team is happy to help you locate the shop or answer any questions.</p>
+        <a href="tel:0406999818" class="btn btn-white">Call 0406 999 818</a>
+      </div>
+
     </div>
   </section>
 
