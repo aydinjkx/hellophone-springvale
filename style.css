@@ -599,8 +599,8 @@ ul { list-style: none; }
 /* === EDIT TOGGLE BUTTON === */
 .edit-toggle-btn {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: 1rem;
+  right: 1rem;
   z-index: 9998;
   background: var(--orange);
   border: none;
@@ -608,10 +608,10 @@ ul { list-style: none; }
   color: var(--white);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1.1rem;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
   font-family: inherit;
-  font-size: 0.88rem;
+  font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(0,0,0,0.35);
