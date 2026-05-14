@@ -637,10 +637,18 @@ ul { list-style: none; }
 #edit-reset:hover { color: var(--white); border-color: rgba(255,255,255,0.5); opacity: 1; }
 
 .edit-mode [contenteditable="true"] {
-  outline: none;
+  outline: none !important;
   border-radius: 3px;
   transition: background 0.15s, box-shadow 0.15s;
   cursor: text;
+}
+.edit-mode [contenteditable="true"]::selection {
+  background: rgba(212, 114, 10, 0.45);
+  color: inherit;
+}
+.edit-mode [contenteditable="true"] *::selection {
+  background: rgba(212, 114, 10, 0.45);
+  color: inherit;
 }
 .edit-mode [contenteditable="true"]:hover {
   background: rgba(212, 114, 10, 0.12);
