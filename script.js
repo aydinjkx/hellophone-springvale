@@ -55,8 +55,6 @@ document.querySelectorAll('.feature-item, .contact-item, .faq-item, .hours-card,
 
 // =====================
 // EDIT MODE
-// Activate by adding ?edit to the URL:
-//   https://aydinjkx.github.io/hellophone-springvale/?edit
 // =====================
 
 const EDIT_SELECTORS = [
@@ -91,29 +89,7 @@ const EDIT_SELECTORS = [
 ];
 
 const STORAGE_KEY = 'hellophone-edits';
-
-function getEditables() {
-  return document.querySelectorAll('[data-edit-key]');
-}
-
-function saveEdits() {
-  const data = {};
-  getEditables().forEach(el => {
-    data[el.dataset.editKey] = el.innerHTML;
-  });
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-}
-
-function loadEdits() {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (!saved) return;
-  const data = JSON.parse(saved);
-  getEditables().forEach(el => {
-    if (data[el.dataset.editKey] !== undefined) {
-      el.innerHTML = data[el.dataset.editKey];
-    }
-  });
-}
+let editActive = false;
 
 // Assign stable keys to all editable elements
 let keyIndex = 0;
@@ -123,14 +99,32 @@ EDIT_SELECTORS.forEach(sel => {
   });
 });
 
-// Always restore saved edits on page load
-loadEdits();
+function saveEdits() {
+  const data = {};
+  document.querySelectorAll('[data-edit-key]').forEach(el => {
+    data[el.dataset.editKey] = el.innerHTML;
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
 
-// Activate edit mode if ?edit is in the URL
-if (new URLSearchParams(window.location.search).has('edit')) {
+function loadEdits() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (!saved) return;
+  const data = JSON.parse(saved);
+  document.querySelectorAll('[data-edit-key]').forEach(el => {
+    if (data[el.dataset.editKey] !== undefined) {
+      el.innerHTML = data[el.dataset.editKey];
+    }
+  });
+}
+
+function activateEditMode() {
+  if (editActive) return;
+  editActive = true;
+
   document.body.classList.add('edit-mode');
+  editToggleBtn.style.display = 'none';
 
-  // Make elements editable
   EDIT_SELECTORS.forEach(sel => {
     document.querySelectorAll(sel).forEach(el => {
       el.contentEditable = 'true';
@@ -138,10 +132,7 @@ if (new URLSearchParams(window.location.search).has('edit')) {
     });
   });
 
-  // Prevent links and buttons from navigating while editing
-  document.querySelectorAll('[contenteditable="true"] a').forEach(a => {
-    a.addEventListener('click', e => e.preventDefault());
-  });
+  document.addEventListener('input', saveEdits);
 
   // Build toolbar
   const toolbar = document.createElement('div');
@@ -153,12 +144,10 @@ if (new URLSearchParams(window.location.search).has('edit')) {
       <button id="edit-save">Save</button>
       <button id="edit-download">Download Updated Page</button>
       <button id="edit-reset">Reset All</button>
+      <button id="edit-exit">✕ Exit</button>
     </div>
   `;
   document.body.appendChild(toolbar);
-
-  // Auto-save on every keystroke
-  document.addEventListener('input', saveEdits);
 
   document.getElementById('edit-save').addEventListener('click', () => {
     saveEdits();
@@ -174,10 +163,13 @@ if (new URLSearchParams(window.location.search).has('edit')) {
     }
   });
 
+  document.getElementById('edit-exit').addEventListener('click', () => {
+    location.reload();
+  });
+
   document.getElementById('edit-download').addEventListener('click', () => {
     saveEdits();
 
-    // Clone the page and clean up edit-mode artefacts
     const clone = document.documentElement.cloneNode(true);
     clone.querySelectorAll('[contenteditable]').forEach(el => {
       el.removeAttribute('contenteditable');
@@ -187,6 +179,7 @@ if (new URLSearchParams(window.location.search).has('edit')) {
       el.removeAttribute('data-edit-key');
     });
     clone.querySelector('.edit-toolbar')?.remove();
+    clone.querySelector('.edit-toggle-btn')?.remove();
     clone.classList.remove('edit-mode');
 
     const html = '<!DOCTYPE html>\n' + clone.outerHTML;
@@ -198,4 +191,21 @@ if (new URLSearchParams(window.location.search).has('edit')) {
     a.click();
     URL.revokeObjectURL(url);
   });
+}
+
+// Restore saved edits on every page load
+loadEdits();
+
+// Floating pencil button — always visible, bottom-right corner
+const editToggleBtn = document.createElement('button');
+editToggleBtn.className = 'edit-toggle-btn';
+editToggleBtn.title = 'Edit page text';
+editToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`;
+document.body.appendChild(editToggleBtn);
+
+editToggleBtn.addEventListener('click', activateEditMode);
+
+// Also support ?edit in the URL
+if (new URLSearchParams(window.location.search).has('edit')) {
+  activateEditMode();
 }

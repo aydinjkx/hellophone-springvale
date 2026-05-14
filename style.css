@@ -588,6 +588,32 @@ ul { list-style: none; }
   color: rgba(255,255,255,0.35);
 }
 
+/* === EDIT TOGGLE BUTTON === */
+.edit-toggle-btn {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 9998;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--dark);
+  border: 2px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.edit-toggle-btn:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--white);
+  transform: scale(1.1);
+}
+
 /* === EDIT MODE === */
 .edit-toolbar {
   position: fixed;
