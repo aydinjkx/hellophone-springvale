@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Where to Find Us — Hellophone Springvale</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .find-hero {
+      background: var(--dark);
+      padding: 4rem 0 3rem;
+      text-align: center;
+    }
+    .find-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .find-hero p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1rem;
+    }
+    .find-body {
+      padding: 4rem 0;
+      background: var(--light);
+    }
+    .find-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .map-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 420px;
+      border: none;
+    }
+    .find-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .find-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: border-color 0.2s;
+    }
+    .find-card:hover { border-color: var(--orange); }
+    .find-card svg { flex-shrink: 0; margin-top: 2px; }
+    .find-card h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+    .find-card p { font-size: 0.95rem; color: var(--gray); line-height: 1.6; }
+    .find-card a { color: var(--orange); font-weight: 600; }
+    .find-card a:hover { text-decoration: underline; }
+    @media (max-width: 700px) {
+      .find-grid { grid-template-columns: 1fr; }
+      .map-wrap iframe { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">Hellophone</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#repairs">Repairs</a></li>
+        <li><a href="index.html#products">What We Sell</a></li>
+        <li><a href="index.html#hours">Hours</a></li>
+        <li><a href="find-us.html">Find Us</a></li>
+        <li><a href="index.html#faq">FAQs</a></li>
+      </ul>
+      <a href="tel:0406999818" class="btn btn-nav">Call Now</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="find-hero">
+    <div class="container">
+      <h1>Where to Find Us</h1>
+      <p>We're located inside Springvale Shopping Centre — come visit us today.</p>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <section class="find-body">
+    <div class="container">
+      <div class="find-grid">
+
+        <!-- MAP -->
+        <div class="map-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=268+Springvale+Road+Springvale+VIC+3171+Australia&output=embed"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <!-- DETAILS -->
+        <div class="find-details">
+          <div class="find-card">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" fill="#D4720A"/>
+            </svg>
+            <div>
+              <h4>Address</h4>
+              <p>Kiosk E, 268–274 Springvale Road<br>Springvale VIC 3171</p>
+            </div>
+          </div>
+          <div class="find-card">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M30 6C16.745 6 6 16.745 6 30C6 43.255 16.745 54 30 54C43.255 54 54 43.255 54 30C54 16.745 43.255 6 30 6ZM31.5 31.5H18V28.5H28.5V13.5H31.5V31.5Z" fill="#D4720A"/>
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" fill="none"/>
+              <circle cx="12" cy="12" r="10" stroke="#D4720A" stroke-width="1.8" fill="none"/>
+              <polyline points="12,6 12,12 16,14" stroke="#D4720A" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            </svg>
+            <div>
+              <h4>Opening Hours</h4>
+              <p>Monday – Sunday<br>9:30 AM – 5:30 PM<br>Open every day including public holidays</p>
+            </div>
+          </div>
+          <div class="find-card">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="#D4720A"/>
+            </svg>
+            <div>
+              <h4>Phone</h4>
+              <p><a href="tel:0406999818">0406 999 818</a></p>
+            </div>
+          </div>
+          <div class="find-card">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#D4720A"/>
+            </svg>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:hellophone.sp@gmail.com">hellophone.sp@gmail.com</a></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">Hellophone</div>
+        <p>Your local phone shop in Springvale.<br>Repairs, accessories, SIM cards &amp; second-hand phones.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html#repairs">Repairs</a></li>
+          <li><a href="index.html#products">What We Sell</a></li>
+          <li><a href="index.html#hours">Opening Hours</a></li>
+          <li><a href="find-us.html">Find Us</a></li>
+          <li><a href="index.html#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p>Kiosk E, 268–274 Springvale Road<br>Springvale VIC 3171</p>
+        <p><a href="tel:0406999818">0406 999 818</a></p>
+        <p><a href="mailto:hellophone.sp@gmail.com">hellophone.sp@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Hellophone Springvale. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+  </script>
+
+</body>
+</html>
