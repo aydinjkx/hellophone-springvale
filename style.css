@@ -214,7 +214,7 @@ ul { list-style: none; }
 .about-image-placeholder {
   background: var(--light);
   border-radius: 12px;
-  height: 170px;
+  height: 340px;
   display: flex;
   align-items: center;
   justify-content: center;
